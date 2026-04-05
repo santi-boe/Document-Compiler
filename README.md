@@ -1,23 +1,15 @@
 # Google Drive Document Compiler
 
-This tool automates the process of converting and merging multiple Google Drive files (Docs, Slides, and PDFs) into a single, high-quality Master PDF. It was specifically designed to handle organization-locked documents (like university course materials) for use in tools like NotebookLM.
+A personal tool to batch-convert and merge Google Drive files into a single Master PDF. Optimized for organization-locked (TAMU) materials and NotebookLM ingestion.
 
-## 🚀 Features
-* **URL Expansion:** Automatically handles shortened links.
-* **Bulk Conversion:** Converts Google Docs and Slides to PDF on the fly.
-* **Smart Merging:** Combines everything into one file with a custom title.
-* **Auth-Ready:** Uses Google OAuth to access files restricted to your organization.
+## 🛠️ Personal Notes & Quirks
+* **Authentication:** Must run `auth.authenticate_user()` to access university-restricted files.
+* **File IDs:** The script extracts IDs from full URLs or shortened `rebrand.ly` links.
+* **Microsoft Word (.docx) Handling:** * **The Problem:** The Drive API cannot "Export" raw Word files as PDFs.
+    * **The Fix:** Open the Word file in Drive -> **File > Save as Google Doc**. Use the new Doc link.
 
-## 🛠️ Important: Handling Word (.docx) Files
-If you are trying to compile Microsoft Word files stored in Drive, please follow these steps before running the script:
-1. Open the `.docx` file in Google Drive.
-2. Go to **File > Save as Google Doc**.
-3. Use the new Google Doc link in this compiler. 
-*Note: The script is optimized for native Google Editor formats.*
-
-## 📖 How to Use
-1. Open the [Master_Note_Compiler.ipynb](Master_Note_Compiler.ipynb) in **Google Colab**.
-2. Run the cells and authenticate with your Google Account.
-3. Enter your desired file title.
-4. Paste your list of URLs (one per line).
-5. Find your finished PDF in your Drive under `Colab Notebooks/Compiled_Documents`.
+## 📖 Quick Start
+1.  Open `Master_Note_Compiler.ipynb` in [Google Colab](https://colab.research.google.com/).
+2.  Run the script and follow the OAuth prompt.
+3.  Enter the output filename and paste URLs (one per line).
+4.  **Output:** Saved to `Colab Notebooks/Compiled_Documents` in Google Drive.
